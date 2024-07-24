@@ -1,15 +1,36 @@
-import java.util.Locale;
 import java.util.Scanner;
 
-public class Contador { 
-    Scanner scanner = new Scanner(System.in).useLocale(Locale.US);
+public class Contador {
+	public static void main(String[] args) {
+		Scanner terminal = new Scanner(System.in);
+		System.out.println("Digite o primeiro parâmetro: ");
+		int parametroUm = terminal.nextInt();
+		System.out.println("Digite o segundo parâmetro: ");
+		int parametroDois = terminal.nextInt();
+		
+		try {
 
-    System.out.println("Digite o primeiro parâmetro");
-    int parametroUm = scanner.next();
+			contar(parametroUm, parametroDois);
 
-    System.out.println("Digite o segundo parâmetro");
-    int parametroDois = scanner.next();
+		}catch (ParametrosInvalidosException errorMessage) {
 
-   system.out.println (parametroUm + parametroDois);
+			System.out.println(errorMessage);
+			
+		}
+	}
+	static void contar(int parametroUm, int parametroDois ) throws ParametrosInvalidosException {
+
+		if(parametroUm < parametroDois){
+			int i;
+			int contagem = parametroDois - parametroUm;
+
+			for(i = 0; i < contagem; i++){
+				System.out.println(i+1);
+			}
+		}else{
+			throw new ParametrosInvalidosException("O segundo parâmetro deve ser maior que o primeiro.");
+		}
+
+	}
 
 }
