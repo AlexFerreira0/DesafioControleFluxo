@@ -1,6 +1,6 @@
+public class ParametrosInvalidosException extends Exception {
 
-public class ParametrosInvalidosException {
     public ParametrosInvalidosException(String errorMessage) {
-        super(mensagemdeerro);
+        super(errorMessage);
     }
 }
